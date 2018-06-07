@@ -1,13 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Hello from './Hello'
+import { TextInput } from 'react-native-gesture-handler';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.View1}></View>
-        <View style={styles.View2}></View>
+      <TextInput style={styles.input}/>
       </View>
     );
   }
@@ -19,18 +19,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    // flexDirection: 'row',
+    padding: 20,
   },
-  View1:{
-    backgroundColor: '#ff00ff',
-    flex: 3, 
-    height: 100,
+  input:{
+    height: 40,
     width: '100%',
-  },
-  View2:{
-    backgroundColor: '#00ffff',
-    flex: 1,
-    height: 100,
-    width: '100%',
+    borderColor: '#333',
+    borderWidth: 1,
+    padding: 5,
   }
 });
