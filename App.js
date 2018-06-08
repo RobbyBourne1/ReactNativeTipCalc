@@ -4,10 +4,28 @@ import Hello from './Hello'
 import { TextInput } from 'react-native-gesture-handler';
 
 export default class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      inputValue: "",
+    }
+  }
   render() {
+    let tip = 0.00
+    if (this.state.inputValue) {
+      tip = parseFloat(this.state.inputValue) * .2
+      tip = (Math.round(tip * 100)/ 100).toFixed(2)
+    }
     return (
       <View style={styles.container}>
-      <TextInput style={styles.input}/>
+      <Text>${tip}</Text>
+      <TextInput 
+      value={this.state.inputValue} 
+      style={styles.input}
+      keyboardType="numeric"
+      placeholder="0.00"
+      onChangeText={(text) => this.setState({inputValue: text})}
+      />
       </View>
     );
   }
