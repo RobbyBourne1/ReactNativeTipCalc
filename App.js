@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
-import Hello from './Hello'
 import { TextInput } from 'react-native-gesture-handler';
+import { Container, Content, Header, Left, Body, Title, Right }from 'native-base';
+import Expo from 'expo';
 
 export default class App extends React.Component {
   constructor() {
@@ -9,7 +10,19 @@ export default class App extends React.Component {
     this.state = {
       inputValue: "",
       tip: 0.2,
+      isReady: false,
     }
+  }
+  componentWillMount() {
+    this.loadFonts();
+  }
+  async loadFonts() {
+    await Expo.Font.loadAsync({
+      Roboto: require("native-base/Fonts/Roboto.ttf"),
+      Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
+      Ionicons: require("@expo/vector-icons/fonts/Ionicons.ttf")
+    });
+    this.setState({ isReady: true });
   }
 
   updateCustomTip(customTip){
@@ -28,42 +41,56 @@ export default class App extends React.Component {
       tip = parseFloat(this.state.inputValue) * this.state.tip
       tip = (Math.round(tip * 100)/ 100).toFixed(2)
     }
+    if (!this.state.isReady) {
+      return <Expo.AppLoading />
+    }
     return (
-      <View style={styles.container}>
-      <Text>${tip}</Text>
-      <TextInput 
-      value={this.state.inputValue} 
-      style={styles.input}
-      keyboardType="numeric"
-      placeholder="0.00"
-      onChangeText={(text) => this.setState({inputValue: text})}
-      />
-      <View style={styles.Button}>
-        <Button
-        title="10%"
-        onPress={() => this.setState({tip: .1})}
-        />
-        <Button
-        title="15%"
-        onPress={() => this.setState({tip: .15})}
-        />
-        <Button
-        title="20%"
-        onPress={() => this.setState({tip: .2})}
-        />
-        <Button
-        title="25%"
-        onPress={() => this.setState({tip: .25})}
-        />
-        <TextInput
-        value={(this.state.tip * 100).toString()}
-        style={styles.customTip}
-        keyboardType="numeric"
-        placeholder="20%"
-        onChangeText={customTip => this.updateCustomTip(customTip)}
-        />
-        </View>
-      </View>
+      <Container>
+        <Header>
+          <Left/>
+          <Body>
+            <Title>Header</Title>
+          </Body>
+          <Right />
+        </Header>
+        <Content>
+          <View style={styles.container}>
+          <Text>${tip}</Text>
+          <TextInput 
+          value={this.state.inputValue} 
+          style={styles.input}
+          keyboardType="numeric"
+          placeholder="0.00"
+          onChangeText={(text) => this.setState({inputValue: text})}
+          />
+          <View style={styles.Button}>
+            <Button
+            title="10%"
+            onPress={() => this.setState({tip: .1})}
+            />
+            <Button
+            title="15%"
+            onPress={() => this.setState({tip: .15})}
+            />
+            <Button
+            title="20%"
+            onPress={() => this.setState({tip: .2})}
+            />
+            <Button
+            title="25%"
+            onPress={() => this.setState({tip: .25})}
+            />
+            <TextInput
+            value={(this.state.tip * 100).toString()}
+            style={styles.customTip}
+            keyboardType="numeric"
+            placeholder="20%"
+            onChangeText={customTip => this.updateCustomTip(customTip)}
+            />
+            </View>
+          </View>
+      </Content>
+      </Container>
     );
   }
 }
@@ -73,8 +100,6 @@ const styles = StyleSheet.create({
     flex:1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
   },
   input:{
     height: 40,
