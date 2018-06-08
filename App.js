@@ -1,8 +1,9 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, StatusBar, Platform } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { Container, Content, Header, Left, Body, Title, Right }from 'native-base';
 import Expo from 'expo';
+import Hello from './Hello'
 
 export default class App extends React.Component {
   constructor() {
@@ -13,7 +14,7 @@ export default class App extends React.Component {
       isReady: false,
     }
   }
-  componentWillMount() {
+  componentWillMount() { 
     this.loadFonts();
   }
   async loadFonts() {
@@ -46,6 +47,7 @@ export default class App extends React.Component {
     }
     return (
       <Container>
+        <View style={styles.header}>
         <Header>
           <Left/>
           <Body>
@@ -53,8 +55,10 @@ export default class App extends React.Component {
           </Body>
           <Right />
         </Header>
+        </View>
         <Content>
           <View style={styles.container}>
+          {/* <Hello /> */}
           <Text>${tip}</Text>
           <TextInput 
           value={this.state.inputValue} 
@@ -96,6 +100,13 @@ export default class App extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  header:{
+    ...Platform.select({
+      android:{
+        marginTop: StatusBar.currentHeight, 
+      },
+    }),
+  },
   container: {
     flex:1,
     backgroundColor: '#fff',
@@ -118,5 +129,6 @@ const styles = StyleSheet.create({
     borderColor: '#333',
     borderWidth: 1,
     padding: 5,
-  }
+  },
+
 });
