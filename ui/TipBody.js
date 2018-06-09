@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, StyleSheet, Text, View, Alert, } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler'
 import { Content }from 'native-base'
+import Values from './Values'
 
 export default class TipBody extends Component {
     constructor() {
@@ -28,19 +29,16 @@ export default class TipBody extends Component {
         )
       }
     render(){
-        let tip = 0.00
-        if (this.state.inputValue) {
-          tip = parseFloat(this.state.inputValue) * this.state.tip
-          tip = (Math.round(tip * 100)/ 100).toFixed(2)
-        }
         return(
-            <Content Padding>
+            <Content padder>
             <View style={styles.container}>
             <Button
               title="Alert"
               onPress={this.alert}
               />
-            <Text>${tip}</Text>
+              <Values 
+              tipPercent = {this.state.tip}
+              bill = {this.state.inputValue}/>
             <TextInput 
             value={this.state.inputValue} 
             style={styles.input}
