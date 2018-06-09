@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Button, StyleSheet, Text, View, Alert, } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler'
-import { Container, Content }from 'native-base'
-import Expo from 'expo'
+import { Content }from 'native-base'
 
 export default class TipBody extends Component {
     constructor() {

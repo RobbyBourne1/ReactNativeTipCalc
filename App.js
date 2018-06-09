@@ -1,7 +1,5 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View, Alert, } from 'react-native';
-import { TextInput } from 'react-native-gesture-handler'
-import { Container, Content, }from 'native-base'
+import { Container }from 'native-base'
 import Expo from 'expo'
 import Hello from './Hello'
 import Head from './ui/Head'
