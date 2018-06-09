@@ -17,7 +17,7 @@ Below you'll find information about performing common tasks. The most recent ver
 * [Customizing App Display Name and Icon](#customizing-app-display-name-and-icon)
 * [Sharing and Deployment](#sharing-and-deployment)
   * [Publishing to Expo's React Native Community](#publishing-to-expos-react-native-community)
-  * [Building an Expo "standalone" app](#building-an-expo-standalone-app)
+  * [Building an Expo 'standalone' app](#building-an-expo-standalone-app)
   * [Ejecting from Create React Native App](#ejecting-from-create-react-native-app)
     * [Build Dependencies (Xcode & Android Studio)](#build-dependencies-xcode-android-studio)
     * [Should I Use ExpoKit?](#should-i-use-expokit)
@@ -77,7 +77,7 @@ Like `npm start`, but also attempts to open your app on a connected Android devi
 
 #### `npm run eject`
 
-This will start the process of "ejecting" from Create React Native App's build scripts. You'll be asked a couple of questions about how you'd like to build your project.
+This will start the process of 'ejecting' from Create React Native App's build scripts. You'll be asked a couple of questions about how you'd like to build your project.
 
 **Warning:** Running eject is a permanent action (aside from whatever version control system you use). An ejected app will require you to have an [Xcode and/or Android Studio environment](https://facebook.github.io/react-native/docs/getting-started.html) set up.
 
@@ -105,7 +105,7 @@ When starting your project, you'll see something like this for your project URL:
 exp://192.168.0.2:19000
 ```
 
-The "manifest" at that URL tells the Expo app how to retrieve and load your app's JavaScript bundle, so even if you load it in the app via a URL like `exp://localhost:19000`, the Expo client app will still try to retrieve your app at the IP address that the start script provides.
+The 'manifest' at that URL tells the Expo app how to retrieve and load your app's JavaScript bundle, so even if you load it in the app via a URL like `exp://localhost:19000`, the Expo client app will still try to retrieve your app at the IP address that the start script provides.
 
 In some cases, this is less than ideal. This might be the case if you need to run your project inside of a virtual machine and you have to access the packager via a different IP address than the one which prints by default. In order to override the IP address or hostname that is detected by Create React Native App, you can specify your own hostname via the `REACT_NATIVE_PACKAGER_HOSTNAME` environment variable:
 
@@ -138,7 +138,7 @@ $ npm i -g exp
 $ exp publish
 ```
 
-### Building an Expo "standalone" app
+### Building an Expo 'standalone' app
 
 You can also use a service like [Expo's standalone builds](https://docs.expo.io/versions/latest/guides/building-standalone-apps.html) if you want to get an IPA/APK for distribution without having to build the native code yourself.
 
@@ -150,7 +150,7 @@ This is usually as simple as running `npm run eject` in your project, which will
 
 #### Should I Use ExpoKit?
 
-If you have made use of Expo APIs while working on your project, then those API calls will stop working if you eject to a regular React Native project. If you want to continue using those APIs, you can eject to "React Native + ExpoKit" which will still allow you to build your own native code and continue using the Expo APIs. See the [ejecting guide](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md) for more details about this option.
+If you have made use of Expo APIs while working on your project, then those API calls will stop working if you eject to a regular React Native project. If you want to continue using those APIs, you can eject to 'React Native + ExpoKit' which will still allow you to build your own native code and continue using the Expo APIs. See the [ejecting guide](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md) for more details about this option.
 
 ## Troubleshooting
 
@@ -184,8 +184,8 @@ If you're not able to load the `http` URL in your phone's web browser, try using
 
 If you're on a Mac, there are a few errors that users sometimes see when attempting to `npm run ios`:
 
-* "non-zero exit code: 107"
-* "You may need to install Xcode" but it is already installed
+* 'non-zero exit code: 107'
+* 'You may need to install Xcode' but it is already installed
 * and others
 
 There are a few steps you may want to take to troubleshoot these kinds of errors:

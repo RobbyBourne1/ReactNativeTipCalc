@@ -8,7 +8,7 @@ export default class TipBody extends Component {
     constructor() {
         super();
         this.state = {
-          inputValue: "",
+          inputValue: '',
           tip: 0.2,
         }
       }
@@ -30,49 +30,55 @@ export default class TipBody extends Component {
       }
     render(){
         return(
-            <Content padder>
             <View style={styles.container}>
+            <Content style={{width: '100%'}}>
             <Button
-              title="Alert"
+              title='Alert'
               onPress={this.alert}
               />
               <Values 
               tipPercent = {this.state.tip}
               bill = {this.state.inputValue}/>
-            <TextInput 
+              <View style={styles.inputs}>
+            <TextInput  
+            underlineColorAndroid='#fff'
+            placeholderTextColor='#fff' 
             value={this.state.inputValue} 
             style={styles.input}
-            keyboardType="numeric"
-            placeholder="0.00"
+            keyboardType='numeric'
+            placeholder='0.00'
             onChangeText={(text) => this.setState({inputValue: text})}
             />
             <View style={styles.Button}>
               <Button
-              title="10%"
+              title='10%'
               onPress={() => this.setState({tip: .1})}
               />
               <Button
-              title="15%"
+              title='15%'
               onPress={() => this.setState({tip: .15})}
               />
               <Button
-              title="20%"
+              title='20%'
               onPress={() => this.setState({tip: .2})}
               />
               <Button
-              title="25%"
+              title='25%'
               onPress={() => this.setState({tip: .25})}
               />
               <TextInput
+              underlineColorAndroid='#fff'
+              placeholderTextColor='#fff' 
               value={(this.state.tip * 100).toString()}
               style={styles.customTip}
-              keyboardType="numeric"
-              placeholder="20%"
+              keyboardType='numeric'
+              placeholder='20%'
               onChangeText={customTip => this.updateCustomTip(customTip)}
               />
               </View>
+              </View> 
+              </Content>
             </View>
-        </Content>
         )
     }
 }
@@ -80,24 +86,31 @@ export default class TipBody extends Component {
 const styles = StyleSheet.create({ 
     container: {
         flex:1,
-        backgroundColor: '#fff',
+        backgroundColor: '#000',
         alignItems: 'center',
+        height: '100%',
+        width: '100%',
+      },
+    inputs:{
+        backgroundColor: '#212121',
+        padding: 20,
       },
     input:{
       height: 40,
       width: '100%',
-      borderColor: '#333',
-      borderWidth: 1,
       padding: 5,
+      color: '#fff',
+      textAlign: 'center'
     },
     Button:{
       flexDirection: 'row',
+      justifyContent: 'space-between'
     },
     customTip:{
-      height: 30,
+      height: 40,
       width: 60,
-      borderColor: '#333',
-      borderWidth: 1,
       padding: 5,
+      color: '#fff',
+      textAlign: 'center',
     },
   });
