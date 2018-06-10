@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0"
+    "sdkVersion": "27.0.0",
+    "name": "RobbyTipCalc",
+    "version": "1.0.0",
+    "slug": "tipcalc",
+    "icon": "./logo.png",
+    "ios":{
+      "bundleIdentifier": "com.tipcalc.robbytipcalc"
+    },
+    "android":{
+      "package": "com.tipcalc.robbytipcalc"
+    }
   }
 }
